@@ -1,0 +1,12 @@
+apiVersion: 1
+# If you change the DB name or enable auth, update this file accordingly.
+
+datasources:
+  - name: InfluxDB
+    type: influxdb
+    access: proxy
+    url: http://influxdb:8086
+    database: air
+    isDefault: true
+    jsonData:
+      httpMode: GET

@@ -6,6 +6,11 @@ firmware/esphome/secrets.yaml
 
 # Env
 .env
+docker/stack.env
+docker/mosquitto/data/
+docker/mosquitto/log/
+docker/influxdb/
+docker/grafana/data/
 
 # OS
 .DS_Store
