@@ -20,9 +20,10 @@ A home air-quality monitor that reads particulate matter (PM2.5/PM10) from an SD
 
 ## Quick start (summary)
 1. Wire the sensors (see `docs/wiring.md`).
-2. Flash ESPHome config (`firmware/esphome/air_monitor.yaml`).
-3. Stand up Mosquitto, Telegraf, InfluxDB 1.8, Grafana on Unraid.
-4. Import the Grafana dashboard and verify metrics.
+2. Create `.env` from `.env.example` and run `scripts/write_esphome_secrets.sh`.
+3. Flash ESPHome config (`firmware/esphome/air_monitor.yaml`).
+4. Stand up Mosquitto, Telegraf, InfluxDB 1.8, Grafana on Unraid.
+5. Import the Grafana dashboard and verify metrics.
 
 ## Notes
 - SDS011 accuracy can degrade in high humidity; place it in a reasonably dry location.

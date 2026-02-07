@@ -7,10 +7,9 @@ This guide assumes:
 
 ## 1) ESPHome
 - Install ESPHome on a local machine or use the ESPHome add-on if you run Home Assistant.
-- Edit `firmware/esphome/air_monitor.yaml`:
-  - Set `wifi.ssid` and `wifi.password`.
-  - Set `mqtt.broker`, `mqtt.username`, `mqtt.password`.
-- Flash the ESP32 via USB-C.
+- Create `.env` from `.env.example` and set values.
+- Run `scripts/write_esphome_secrets.sh` to generate `firmware/esphome/secrets.yaml`.
+- Flash the ESP32 via USB-C using `firmware/esphome/air_monitor.yaml`.
 
 ## 2) Mosquitto (Unraid)
 - Create a Mosquitto container and add a user/password.

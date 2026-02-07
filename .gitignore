@@ -2,6 +2,10 @@
 .esphome/
 .pioenvs/
 .piolibdeps/
+firmware/esphome/secrets.yaml
+
+# Env
+.env
 
 # OS
 .DS_Store

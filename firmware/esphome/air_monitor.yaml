@@ -8,13 +8,13 @@ esp32:
     type: arduino
 
 wifi:
-  ssid: "YOUR_WIFI"
-  password: "YOUR_PASS"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
   # Enable fallback hotspot (captive portal) in case WiFi fails
   ap:
     ssid: "Air Monitor Fallback"
-    password: "changeme123"
+    password: !secret ap_password
 
 captive_portal:
 
@@ -23,9 +23,9 @@ logger:
 ota:
 
 mqtt:
-  broker: 192.168.1.10
-  username: "mqtt_user"
-  password: "mqtt_pass"
+  broker: !secret mqtt_broker
+  username: !secret mqtt_username
+  password: !secret mqtt_password
   reboot_timeout: 0s
 
 # I2C for BME280
