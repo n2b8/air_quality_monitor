@@ -1,0 +1,76 @@
+esphome:
+  name: air_monitor
+  friendly_name: Air Monitor
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+wifi:
+  ssid: "YOUR_WIFI"
+  password: "YOUR_PASS"
+
+  # Enable fallback hotspot (captive portal) in case WiFi fails
+  ap:
+    ssid: "Air Monitor Fallback"
+    password: "changeme123"
+
+captive_portal:
+
+logger:
+
+ota:
+
+mqtt:
+  broker: 192.168.1.10
+  username: "mqtt_user"
+  password: "mqtt_pass"
+  reboot_timeout: 0s
+
+# I2C for BME280
+i2c:
+  sda: GPIO21
+  scl: GPIO22
+  scan: true
+
+# UART for SDS011
+uart:
+  rx_pin: GPIO16
+  tx_pin: GPIO17
+  baud_rate: 9600
+
+sensor:
+  - platform: bme280_i2c
+    temperature:
+      name: "Air Temperature"
+      id: bme_temp
+    pressure:
+      name: "Air Pressure"
+      id: bme_press
+    humidity:
+      name: "Air Humidity"
+      id: bme_hum
+    address: 0x76
+    update_interval: 60s
+
+  - platform: sds011
+    pm_2_5:
+      name: "PM2.5"
+      id: pm25
+    pm_10_0:
+      name: "PM10"
+      id: pm10
+    update_interval: 5min
+
+interval:
+  - interval: 60s
+    then:
+      - mqtt.publish_json:
+          topic: air_monitor/metrics
+          payload: |-
+            if (!isnan(id(pm25).state)) { root["pm25"] = id(pm25).state; }
+            if (!isnan(id(pm10).state)) { root["pm10"] = id(pm10).state; }
+            if (!isnan(id(bme_temp).state)) { root["temp_c"] = id(bme_temp).state; }
+            if (!isnan(id(bme_hum).state)) { root["humidity"] = id(bme_hum).state; }
+            if (!isnan(id(bme_press).state)) { root["pressure_hpa"] = id(bme_press).state; }
