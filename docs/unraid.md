@@ -1,39 +1,22 @@
-# Unraid Container Notes
+# Unraid Notes (Docker Compose)
 
-These are practical defaults for running Mosquitto, Telegraf, InfluxDB 1.8, and Grafana on Unraid.
+This repo ships a portable Docker Compose stack. On Unraid, the easiest path is the Docker Compose Manager plugin.
 
-## Mosquitto
-- Create a user/password in the Mosquitto config directory.
-- Expose port 1883.
-- Confirm the broker is reachable from your LAN.
+## Recommended flow
+1. Install the Docker Compose Manager plugin (Community Apps).
+2. Set the project directory to the repo's `docker/` folder.
+3. Copy `docker/stack.env.example` to `docker/stack.env` and edit values.
+4. Bring the stack up with `docker compose --env-file stack.env up -d` (or via the plugin UI).
 
-Example config snippet (place in your Mosquitto config path):
+## Storage locations
+By default, the stack stores data inside the repo:
+- `docker/mosquitto/data`
+- `docker/influxdb`
+- `docker/grafana/data`
 
-```
-listener 1883
-allow_anonymous false
-password_file /mosquitto/config/passwd
-```
+If you prefer Unraid's `/mnt/user/appdata/...`, update the volumes in `docker/docker-compose.yml`.
 
-Create a user:
-
-```
-mosquitto_passwd -c /mosquitto/config/passwd mqtt_user
-```
-
-## InfluxDB 1.8
-- Expose port 8086.
-- Create a database named `air`:
-
-```
-CREATE DATABASE air
-```
-
-## Telegraf
-- Mount `server/telegraf/air_monitor.conf` into the container, typically under:
-  - `/etc/telegraf/telegraf.d/air_monitor.conf`
-- Set the InfluxDB URL to your Unraid host or container name.
-
-## Grafana
-- Add InfluxDB as a data source (InfluxQL).
-- Import `dashboards/grafana/air_monitor.json` and choose your data source during import.
+## Ports
+- MQTT: 1883
+- InfluxDB: 8086
+- Grafana: 3000
