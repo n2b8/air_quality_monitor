@@ -1,0 +1,10 @@
+# ESPHome / PlatformIO
+.esphome/
+.pioenvs/
+.piolibdeps/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
