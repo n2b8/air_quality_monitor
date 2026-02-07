@@ -4,6 +4,9 @@
 - Keep the inlet/outlet unobstructed.
 - Avoid very humid placements.
 - The SDS011 fan does not need to run 24/7. In ESPHome, `update_interval: 5min` sets a 5-minute working period, which sleeps the sensor between readings and extends fan life.
+
+## AQI thresholds
+- The Grafana dashboard uses 2024 EPA PM2.5 breakpoints (Good <9.0 µg/m³). These are based on 24-hour averages; treat real-time values as an indicator, not a formal AQI calculation.
 - If you see drift, compare readings against a known-good reference for a few hours and apply a fixed offset in Grafana if needed.
 
 ## BME280

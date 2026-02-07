@@ -2,6 +2,10 @@ esphome:
   name: air_monitor
   friendly_name: Air Monitor
 
+substitutions:
+  # Adjust to match your enclosure/placement
+  temp_offset_c: "-2.0"
+
 esp32:
   board: esp32dev
   framework:
@@ -45,6 +49,8 @@ sensor:
     temperature:
       name: "Air Temperature"
       id: bme_temp
+      filters:
+        - offset: ${temp_offset_c}
     pressure:
       name: "Air Pressure"
       id: bme_press
