@@ -61,6 +61,7 @@ sensor:
     pm_10_0:
       name: "PM10"
       id: pm10
+    # update_interval controls the SDS011 working period (sensor sleeps between reads)
     update_interval: 5min
 
 interval:

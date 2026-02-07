@@ -31,3 +31,4 @@ A home air-quality monitor that reads particulate matter (PM2.5/PM10) from an SD
 ## Notes
 - SDS011 accuracy can degrade in high humidity; place it in a reasonably dry location.
 - If your BME280 module is 0x77 instead of 0x76, update the I2C address in the YAML.
+- Grafana dashboard is auto-provisioned and includes PM2.5 health thresholds (Good <12, Moderate 12–35, Unhealthy >35 µg/m³).

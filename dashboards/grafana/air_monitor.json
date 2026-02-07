@@ -60,13 +60,30 @@
             "pointSize": 2,
             "showPoints": "auto"
           },
-          "unit": "ugm3"
+          "unit": "ugm3",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 12
+              },
+              {
+                "color": "red",
+                "value": 35
+              }
+            ]
+          }
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 24,
+        "h": 7,
+        "w": 12,
         "x": 0,
         "y": 0
       },
@@ -103,7 +120,41 @@
           "resultFormat": "time_series",
           "select": [],
           "tags": []
+        }
+      ],
+      "title": "PM2.5",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${DS_INFLUXDB}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 2,
+            "showPoints": "auto"
+          },
+          "unit": "ugm3"
         },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "bottom"
+        }
+      },
+      "targets": [
         {
           "groupBy": [
             {
@@ -130,7 +181,7 @@
           "tags": []
         }
       ],
-      "title": "PM2.5 / PM10",
+      "title": "PM10",
       "type": "timeseries"
     },
     {
@@ -152,7 +203,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 8
+        "y": 7
       },
       "id": 2,
       "options": {
@@ -211,7 +262,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 8
+        "y": 7
       },
       "id": 3,
       "options": {
@@ -270,7 +321,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 15
+        "y": 14
       },
       "id": 4,
       "options": {

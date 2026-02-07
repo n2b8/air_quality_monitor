@@ -3,6 +3,7 @@
 ## SDS011
 - Keep the inlet/outlet unobstructed.
 - Avoid very humid placements.
+- The SDS011 fan does not need to run 24/7. In ESPHome, `update_interval: 5min` sets a 5-minute working period, which sleeps the sensor between readings and extends fan life.
 - If you see drift, compare readings against a known-good reference for a few hours and apply a fixed offset in Grafana if needed.
 
 ## BME280
