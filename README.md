@@ -16,6 +16,7 @@ A home air-quality monitor that reads particulate matter (PM2.5/PM10) from an SD
 - `docs/wiring.md` wiring diagrams and pin mapping
 - `docs/setup.md` end-to-end setup steps
 - `docs/maintenance.md` calibration and maintenance notes
+- `docs/unraid.md` Unraid container notes and defaults
 
 ## Quick start (summary)
 1. Wire the sensors (see `docs/wiring.md`).
