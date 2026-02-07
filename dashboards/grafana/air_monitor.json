@@ -60,7 +60,7 @@
               },
               {
                 "color": "#d2b100",
-                "value": 9.0
+                "value": 9.1
               },
               {
                 "color": "#ff9830",
@@ -139,7 +139,36 @@
             "pointSize": 2,
             "showPoints": "auto"
           },
-          "unit": "ugm3"
+          "unit": "ugm3",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#299c46",
+                "value": null
+              },
+              {
+                "color": "#d2b100",
+                "value": 55
+              },
+              {
+                "color": "#ff9830",
+                "value": 155
+              },
+              {
+                "color": "#e02f44",
+                "value": 255
+              },
+              {
+                "color": "#7f3fbf",
+                "value": 355
+              },
+              {
+                "color": "#7a1c1c",
+                "value": 425
+              }
+            ]
+          }
         },
         "overrides": []
       },
@@ -366,6 +395,66 @@
         }
       ],
       "title": "Pressure",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "InfluxDB",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 2,
+            "showPoints": "auto"
+          },
+          "unit": "g/m3"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "bottom"
+        }
+      },
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "air",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 2.1674 * 6.112 * exp((17.67 * mean(\"temp_c\")) / (mean(\"temp_c\") + 243.5)) * mean(\"humidity\") / (273.15 + mean(\"temp_c\")) FROM \"air\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [],
+          "tags": [],
+          "datasource": "InfluxDB"
+        }
+      ],
+      "title": "Absolute Humidity",
       "type": "timeseries"
     }
   ],
