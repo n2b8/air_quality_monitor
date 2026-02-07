@@ -3,10 +3,11 @@
 A home air-quality monitor that reads particulate matter (PM2.5/PM10) from an SDS011 and temperature/humidity/pressure from a BME280. The data is published to MQTT and ingested into InfluxDB via Telegraf, then visualized in Grafana. The entire server stack runs with Docker Compose for easy portability (Unraid, Raspberry Pi, desktops).
 
 ## What you need
-- ESP32 dev board (USB-C)
-- SDS011 particulate sensor (5V, UART)
-- BME280 3.3V sensor (I2C)
-- Jumper wires, breadboard, USB-C cable
+- [ESP32 dev board (USB-C)](http://amazon.com/dp/B0D8T53CQ5?ref=ppx_yo2ov_dt_b_fed_asin_title)
+- [SDS011 particulate sensor (5V, UART)](https://www.amazon.com/dp/B08QRJSVW7?ref=ppx_yo2ov_dt_b_fed_asin_title)
+- [BME280 3.3V sensor (I2C)](https://www.amazon.com/dp/B0DHPCFJD6?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1)
+- [Breadboard + jumper wires](https://www.amazon.com/BOJACK-Values-Solderless-Breadboard-Flexible/dp/B08Y59P6D1/ref=sxin_17_pa_sp_search_thematic_sspa?content-id=amzn1.sym.3a0d13e4-3c7b-401b-87d9-d25eb6b8a9fa%3Aamzn1.sym.3a0d13e4-3c7b-401b-87d9-d25eb6b8a9fa&crid=2CV5FYZTVFVI&cv_ct_cx=breadboard+jumper+wires&keywords=breadboard+jumper+wires&pd_rd_i=B08Y59P6D1&pd_rd_r=d99dcd6f-d53e-4ce5-bd10-3c6714032c17&pd_rd_w=kMeYO&pd_rd_wg=mJP58&pf_rd_p=3a0d13e4-3c7b-401b-87d9-d25eb6b8a9fa&pf_rd_r=M9SNZ929J9SZD84D5WHR&qid=1770491256&s=electronics&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=jumper+wires+bread%2Celectronics%2C223&sr=1-4-6e60e730-e094-43e9-99e8-1a4854cd27ff-spons&aref=Mx0PeJzWWs&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&psc=1)
+- USB-C cable
 - Docker + Docker Compose (Unraid Docker Compose Manager works great)
 
 ## Repo layout
