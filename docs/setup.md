@@ -15,6 +15,7 @@ This guide assumes:
 - From `docker/`, run `docker compose --env-file stack.env up -d`.
 - Grafana will be available at `http://<host>:3000` (default `admin` / `admin`).
 - The dashboard and data source are pre-provisioned.
+- If you change the InfluxDB DB name or enable auth, update `docker/grafana/provisioning/datasources/datasource.yaml`.
 
 ## Validation
 - In Grafana, verify `pm25`, `pm10`, `temp_c`, `humidity`, and `pressure_hpa` are updating.
