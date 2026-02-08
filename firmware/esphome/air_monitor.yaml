@@ -25,6 +25,7 @@ captive_portal:
 logger:
 
 ota:
+  - platform: esphome
 
 mqtt:
   broker: !secret mqtt_broker
