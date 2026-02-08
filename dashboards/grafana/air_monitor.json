@@ -228,7 +228,7 @@
             "pointSize": 2,
             "showPoints": "auto"
           },
-          "unit": "celsius"
+          "unit": "fahrenheit"
         },
         "overrides": []
       },
@@ -265,7 +265,7 @@
           "measurement": "air",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"temp_c\") FROM \"air\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT (mean(\"temp_c\") * 9/5) + 32 FROM \"air\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -348,7 +348,7 @@
             "pointSize": 2,
             "showPoints": "auto"
           },
-          "unit": "hpa"
+          "unit": "inhg"
         },
         "overrides": []
       },
@@ -385,7 +385,7 @@
           "measurement": "air",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"pressure_hpa\") FROM \"air\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"pressure_hpa\") * 0.02953 FROM \"air\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
